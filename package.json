@@ -1,0 +1,13 @@
+{
+  "name": "openclaw-installer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OpenClaw foolproof one-click installer launcher",
+  "scripts": {
+    "start": "node scripts/start.js",
+    "menu": "node scripts/start.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

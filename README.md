@@ -1,6 +1,26 @@
 # OpenClaw 全平台傻瓜式安装器（含扩展中心）
 
-这个脚本现在不只是安装 OpenClaw，还提供了一个“傻瓜式扩展中心”：
+这个项目现在支持 **Node.js 一键启动**，新手只要一条命令就能进入傻瓜菜单。
+
+## 超级傻瓜式快速开始（推荐）
+
+> 先确保你装了 Node.js（建议 18+）。
+
+```bash
+npm start
+```
+
+- 这会自动启动菜单（底层调用 `openclaw-easy-installer.sh`）。
+- Windows 建议在 **Git Bash / MSYS2** 里执行 `npm start`。
+
+## 传统方式（可选）
+
+```bash
+chmod +x openclaw-easy-installer.sh
+./openclaw-easy-installer.sh
+```
+
+## 已支持的傻瓜能力
 
 - 一键安装 / 更新 / 自动修复 / 卸载
 - 菜单常驻循环
@@ -11,13 +31,6 @@
 - 一键重启 OpenClaw（后台）
 - 系统健康检查
 - 扩展配置一键备份与恢复
-
-## 快速开始
-
-```bash
-chmod +x openclaw-easy-installer.sh
-./openclaw-easy-installer.sh
-```
 
 ## 支持平台
 
