@@ -1,19 +1,29 @@
 # OpenClaw 全平台傻瓜式安装器（含扩展中心）
 
-这个项目现在支持 **Node.js 一键启动**，新手只要一条命令就能进入傻瓜菜单。
+现在支持真正的 **一条命令自动开跑**：自动检查 Node.js，没有就询问并自动安装，然后直接进入菜单。
 
-## 超级傻瓜式快速开始（推荐）
+## 超级傻瓜式一键开始（推荐）
 
-> 先确保你装了 Node.js（建议 18+）。
+```bash
+./bootstrap-openclaw.sh
+```
+
+执行流程：
+
+1. 自动检查 `node` / `npm` 是否存在
+2. 若缺失，询问是否自动安装（Y/n）
+3. 自动调用系统包管理器安装 Node.js
+4. 自动执行 `npm start` 进入安装器菜单
+
+## 备选启动方式
+
+### 方式 A：你已经有 Node.js
 
 ```bash
 npm start
 ```
 
-- 这会自动启动菜单（底层调用 `openclaw-easy-installer.sh`）。
-- Windows 建议在 **Git Bash / MSYS2** 里执行 `npm start`。
-
-## 传统方式（可选）
+### 方式 B：传统 Bash 直接启动
 
 ```bash
 chmod +x openclaw-easy-installer.sh
@@ -66,8 +76,3 @@ chmod +x openclaw-easy-installer.sh
 - `hub/openclaw.pid`：后台进程 PID
 - `hub/backups/`：备份文件
 - `integrations/*.env`：聊天软件模板
-
-## 说明
-
-- 这是“傻瓜式接入层”，负责生成配置和统一入口；具体聊天机器人桥接程序（如你自己的 bot 服务）读取这些配置后即可工作。
-- Windows 下若 SDL2 开发环境不完整，建议进入 MSYS2 后补齐相关包。
