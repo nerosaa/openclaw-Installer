@@ -383,6 +383,12 @@ configure_paths() {
   ensure_hub_files
 }
 
+run_auto_install() {
+  info "自动模式：开始下载 + 安装 OpenClaw（无人值守）..."
+  one_click_install
+  info "自动模式安装完成。"
+}
+
 show_menu() {
   clear || true
   print_line
@@ -412,6 +418,12 @@ main() {
   detect_os
   ensure_hub_files
   info "检测到系统: $OS_TYPE"
+
+  if [[ "${1:-}" == "--auto-install" ]]; then
+    run_auto_install
+    exit 0
+  fi
+
   while true; do
     show_menu
     read -r -p "请选择 [0-16]: " choice

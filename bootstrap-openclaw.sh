@@ -72,12 +72,7 @@ ensure_node() {
     return 0
   fi
 
-  warn "未检测到 Node.js / npm。"
-  read -r -p "是否现在自动安装 Node.js？(Y/n): " ans
-  if [[ -n "$ans" && "${ans,,}" != "y" ]]; then
-    err "用户取消安装 Node.js。"
-    return 1
-  fi
+  warn "未检测到 Node.js / npm，开始自动安装..."
 
   local os
   os="$(detect_os)"
@@ -101,9 +96,13 @@ ensure_node() {
 
 main() {
   ensure_node
-  info "启动 OpenClaw 傻瓜菜单..."
+  info "启动 OpenClaw 自动安装流程..."
   cd "$ROOT_DIR"
-  npm start
+  if [[ "${1:-}" == "--menu" ]]; then
+    npm start
+  else
+    npm start -- --auto-install
+  fi
 }
 
 main "$@"
